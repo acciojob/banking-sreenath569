@@ -19,12 +19,16 @@ public class CurrentAccount extends BankAccount{
         }
 
         String licenceId = rearrangeLicenseId(this.tradeLicenseId);
-        if(licenceId.equals("-1")){
-            throw new Exception("Valid License can not be generated");
+        try{
+            if(licenceId.equals("-1")){
+                throw new Exception("Valid License can not be generated");
+            }
         }
-        else{
-            this.tradeLicenseId = licenceId;
+        catch(Exception e){
+            System.out.println(e.getMessage());
         }
+
+        this.tradeLicenseId = licenceId;
 
     }
 
